@@ -1,0 +1,11 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+<h1>After adding a double-click event, the single selection will not take effect and the cumulative selected items will be selected</h1>
+<DirectoryTree TItem="NodeType"
+               DataSource="soruces.Where(x=>x.Id==0)"
+               ChildrenExpression="x=>soruces.Where(s=>s.ParentId==x.DataItem.Id)"
+               TitleExpression="x => x.DataItem.Name"
+               OnSelect="x => SelectNode()"
+               OnDblClick="x => OnDblClick()" />
+
